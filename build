@@ -22,7 +22,6 @@ export PATH="$ANDROID_NDK_ROOT:$PATH"
 
 function clearBuildDirectory {
     echo "Clear final build folder ..."
-    rm -rf "${FINAL_BUILD_DIR}"
     mkdir -p "${FINAL_BUILD_LIB}"
     mkdir -p "${FINAL_BUILD_LOGS}"
 }
