@@ -8,13 +8,13 @@ ARG BASEDIR=/home
 # In general, the name corresponds to that of the tar, except the file extension
 ARG PJSIP_DIR_NAME="pjproject"
 
-# TOOLS AND LIBRARIES DOWNLOAD DIRECTORY - add to gitignore too
+# TOOLS AND LIBRARIES DOWNLOAD DIRECTORY
 ENV DOWNLOAD_DIR="$BASEDIR/tools"
 
 ENV PJSIP_BASE_PATH="${DOWNLOAD_DIR}/${PJSIP_DIR_NAME}"
 
-# BUILD DIRECTORY WHERE ALL THE BUILD ARTIFACTS WILL BE - add to gitignore too
-ENV BUILD_DIR="$BASEDIR/output"
+# BUILD DIRECTORY WHERE ALL THE BUILD ARTIFACTS WILL BE
+ENV BUILD_DIR="$BASEDIR/android-output"
 
 # The output directory where to store PJSIP compiled libraries
 ENV PJSIP_BUILD_OUT_PATH="$BUILD_DIR/pjsip-build-output"
@@ -24,4 +24,4 @@ COPY . $BASEDIR
 
 RUN ./prepare-build-system
 
-VOLUME ["$PJSIP_BUILD_OUT_PATH", "$PJSIP_BASE_PATH"]
+VOLUME ["$BUILD_DIR", "$PJSIP_BASE_PATH"]
