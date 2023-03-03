@@ -14,7 +14,7 @@ ENV DOWNLOAD_DIR="$BASEDIR/tools"
 ENV PJSIP_BASE_PATH="${DOWNLOAD_DIR}/${PJSIP_DIR_NAME}"
 
 # BUILD DIRECTORY WHERE ALL THE BUILD ARTIFACTS WILL BE
-ENV BUILD_DIR="$BASEDIR/android-output"
+ENV BUILD_DIR="$BASEDIR/output"
 
 # The output directory where to store PJSIP compiled libraries
 ENV PJSIP_BUILD_OUT_PATH="$BUILD_DIR/pjsip-build-output"
@@ -24,4 +24,4 @@ COPY . $BASEDIR
 
 RUN ./prepare-build-system
 
-VOLUME ["$BUILD_DIR", "$PJSIP_BASE_PATH"]
+VOLUME ["$PJSIP_BUILD_OUT_PATH", "$PJSIP_BASE_PATH"]
